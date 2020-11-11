@@ -1,12 +1,19 @@
 #!/bin/bash
 
-# cd ../react-front-end && yarn build
+cd ../react-front-end && yarn build
 cd ../express-back-end && npm run buildProd
 
-rm -rf ../web-app/bin
-rm -rf ../web-app/dist
-rm -rf ../web-app/package.*
-rm -rf ../web-app/build
+if [ -d "../web-app" ] 
+then
+    echo "remove the contents of web-app"
+    rm -rf ../web-app/bin
+    rm -rf ../web-app/dist
+    rm -rf ../web-app/package.*
+    rm -rf ../web-app/build
+else
+    echo "create web app"
+    mkdir ../web-app
+fi
 
 cp -r ../express-back-end/bin ../web-app/
 cp -r ../express-back-end/dist ../web-app/
