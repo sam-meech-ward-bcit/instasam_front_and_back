@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cd ../react-front-end && yarn build
-cd ../express-back-end && npm run buildProd
+cd ../react-front-end && yarn && yarn build
+cd ../express-back-end && npm i && npm run buildProd
 
 if [ -d "../web-app" ] 
 then
